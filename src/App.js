@@ -1,36 +1,40 @@
-import { useState } from 'react';
+import { Routes, Route, NavLink } from 'react-router-dom';
+// import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 import './App.css';
+import Movies from './pages/Movies';
+import Home from './pages/Home';
+import TestFilm from './pages/TestFilm';
 
-const KEY = 'cb13da90a39eba44c82ce3db6bc38256';
 
 function App() {
-  const [movieName, setMovieName] = useState('');
-  const [result, setResult] = useState({});
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    fetch(`https://api.themoviedb.org/3/movie/76341?api_key=${KEY}`)
-      .then(r => r.json())
-      .then(data => setResult(data));
-  }
-
-  const showResult = () => {
-    console.log(result);
-  }
 
   return (
     <div className="App">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="movieName"
-          value={movieName}
-          onChange={e => setMovieName(e.target.value)}
-        />
-        <button type="submit">Search</button>
-        <button type='button' onClick={showResult}>Show result</button>
-      </form>
+      <header>
+        <nav>
+          <NavLink className="navLink" to="/">
+            <Button sx={{ margin: '10px' }} variant="text">
+              Home
+            </Button>
+          </NavLink>
+          <NavLink className="navLink" to="/movies">
+            <Button sx={{ margin: '10px' }} variant="text">
+              Movies
+            </Button>
+          </NavLink>
+          <NavLink className="navLink" to="/test">
+            <Button sx={{ margin: '10px' }} variant="text">
+              TestFilm
+            </Button>
+          </NavLink>
+        </nav>
+      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/test" element={<TestFilm />} />
+      </Routes>
     </div>
   );
 }
