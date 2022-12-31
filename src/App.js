@@ -5,6 +5,7 @@ import './App.css';
 import Movies from './pages/Movies';
 import Home from './pages/Home';
 import TestFilm from './pages/TestFilm';
+import FilmInfo from './pages/FilmInfo/FilmInfo';
 
 
 function App() {
@@ -31,7 +32,9 @@ function App() {
         </nav>
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />}>
+          <Route path=":movieId" element={<FilmInfo />} />
+        </Route>
         <Route path="/movies" element={<Movies />} />
         <Route path="/test" element={<TestFilm />} />
       </Routes>

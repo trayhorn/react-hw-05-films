@@ -1,4 +1,6 @@
+import { NavLink, Outlet } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+
 
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -14,9 +16,14 @@ export default function Home() {
   return (
     <>
       <h1>Trending today</h1>
+      <Outlet />
       <ul>
-        {trendMovies.map(movie => {
-          return <li key={movie.id}>{movie.title || movie.name}</li>;
+        {trendMovies.map(({ id, title, name }) => {
+          return (
+            <NavLink key={id} to={`${id}`}>
+              <li>{title || name}</li>
+            </NavLink>
+          );
         })}
       </ul>
     </>
