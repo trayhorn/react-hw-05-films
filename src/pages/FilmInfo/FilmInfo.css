@@ -1,0 +1,13 @@
+.filmBox {
+  display: flex;
+  margin-top: 22px;
+}
+
+.filmInfo {
+  width: 500px;
+}
+
+.poster {
+  width: 375px;
+  margin-right: 50px;
+}

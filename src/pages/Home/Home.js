@@ -8,7 +8,7 @@ export default function Home() {
   const KEY = 'cb13da90a39eba44c82ce3db6bc38256';
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${KEY}`)
+    fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}`)
       .then(r => r.json())
       .then(data => setTrendMovies([...data.results]));
   }, []);
@@ -20,7 +20,7 @@ export default function Home() {
       <ul>
         {trendMovies.map(({ id, title, name }) => {
           return (
-            <NavLink key={id} to={`${id}`}>
+            <NavLink key={id} to={`/movies/${id}`}>
               <li>{title || name}</li>
             </NavLink>
           );
