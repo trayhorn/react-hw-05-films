@@ -1,4 +1,5 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import './Home.css';
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 
@@ -16,11 +17,10 @@ export default function Home() {
   return (
     <>
       <h1>Trending today</h1>
-      <Outlet />
       <ul>
         {trendMovies.map(({ id, title, name }) => {
           return (
-            <NavLink key={id} to={`/movies/${id}`}>
+            <NavLink className="movieLink" key={id} to={`/movies/${id}`}>
               <li>{title || name}</li>
             </NavLink>
           );
