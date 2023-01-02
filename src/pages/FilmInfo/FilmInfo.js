@@ -26,8 +26,8 @@ export default function FilmInfo() {
           <div className="filmBox">
             <img
               className="poster"
-              src="https://cdn.pixabay.com/photo/2012/04/18/23/29/film-38241_960_720.png"
-              alt="random film"
+              src={`https://image.tmdb.org/t/p/original${filmCard.poster_path}`}
+              alt={`${filmCard.title} poster`}
             />
             <div className="filmInfo">
               <p>
@@ -44,18 +44,18 @@ export default function FilmInfo() {
               <p>Random Genres</p>
             </div>
           </div>
-          <div>
-            <p>Additional information</p>
-            <ul>
-              <NavLink to='cast'>
+          <div className="addInfo">
+            <p className="addInfoTitle">Additional information</p>
+            <ul className="addInfoList">
+              <NavLink to="cast">
                 <li>Cast</li>
               </NavLink>
-              <NavLink to='reviews'>
+              <NavLink to="reviews">
                 <li>Reviews</li>
               </NavLink>
             </ul>
-            <Outlet />
           </div>
+          <Outlet />
         </section>
       )}
     </>

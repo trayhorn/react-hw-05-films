@@ -1,0 +1,15 @@
+
+.actorsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.actorsImage {
+  width: 150px;
+}
+
+.actorCard {
+  max-width: 150px;
+}
