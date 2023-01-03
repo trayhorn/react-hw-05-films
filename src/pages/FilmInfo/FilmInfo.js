@@ -1,10 +1,11 @@
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import './FilmInfo.css';
 
 
 export default function FilmInfo() {
   const [filmCard, setFilmCard] = useState(null);
+  const location = useLocation();
 
   const {movieId} = useParams()
 
@@ -18,6 +19,7 @@ export default function FilmInfo() {
       .then(data => setFilmCard(data));
   }, [movieId]);
 
+  const backLinkHref = location.state?.from ?? '/movies';
 
   return (
     <>
@@ -42,17 +44,24 @@ export default function FilmInfo() {
                 <b>Genres</b>
               </p>
               <p>Random Genres</p>
+              <NavLink className="link" to={backLinkHref}>
+                Back to movies
+              </NavLink>
             </div>
           </div>
           <div className="addInfo">
             <p className="addInfoTitle">Additional information</p>
             <ul className="addInfoList">
-              <NavLink to="cast">
-                <li>Cast</li>
-              </NavLink>
-              <NavLink to="reviews">
-                <li>Reviews</li>
-              </NavLink>
+              <li>
+                <NavLink className="link" to="cast">
+                  Cast
+                </NavLink>
+              </li>
+              <li>
+                <NavLink className="link" to="reviews">
+                  Reviews
+                </NavLink>
+              </li>
             </ul>
           </div>
           <Outlet />
