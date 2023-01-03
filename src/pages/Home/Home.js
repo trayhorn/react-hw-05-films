@@ -1,15 +1,14 @@
-import './Home.css';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import './Home.css';
+import { KEY, baseURL } from '../../api';
 
 
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
 
-  const KEY = 'cb13da90a39eba44c82ce3db6bc38256';
-
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}`)
+    fetch(`${baseURL}trending/movie/day?api_key=${KEY}`)
       .then(r => r.json())
       .then(data => setTrendMovies([...data.results]));
   }, []);

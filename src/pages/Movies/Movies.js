@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
+import { KEY, baseURL } from '../../api';
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -9,7 +10,6 @@ export default function Movies() {
   const location = useLocation();
 
   const query = searchParams.get('query') ?? '';
-  const KEY = 'cb13da90a39eba44c82ce3db6bc38256';
 
   const handleChange = (e) => {
     const value = e.target.value;
@@ -19,16 +19,15 @@ export default function Movies() {
   const handleSubmit = (e) => {
     e.preventDefault();
     fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${KEY}&language=en-US&query=${query}`,
+      `${baseURL}search/movie?api_key=${KEY}&language=en-US&query=${query}`,
     )
       .then(r => r.json())
       .then(data => setQueryFilms(data.results));
   };
 
-  console.log(location);
 
   return (
-    <>
+    <main>
       <form autoComplete="off" onSubmit={handleSubmit}>
         <TextField
           onChange={handleChange}
@@ -51,6 +50,6 @@ export default function Movies() {
             </li>
           </ul>
         ))}
-    </>
+    </main>
   );
 }

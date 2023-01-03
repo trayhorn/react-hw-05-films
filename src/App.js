@@ -5,7 +5,7 @@ import Movies from './pages/Movies';
 import Home from './pages/Home';
 import FilmInfo from './pages/FilmInfo/FilmInfo';
 import Cast from './components/Cast';
-import Reviews from './components/Reviews';
+import Reviews from './components/Reviews/Reviews';
 
 
 function App() {
