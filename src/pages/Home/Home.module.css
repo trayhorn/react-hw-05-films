@@ -1,3 +1,7 @@
+.filmsList {
+  padding-left: 20px;
+}
+
 .movieLink {
   text-decoration: none;
   color: black;
@@ -5,3 +9,4 @@
 .movieLink:hover {
   color: #1976d2;
 }
+

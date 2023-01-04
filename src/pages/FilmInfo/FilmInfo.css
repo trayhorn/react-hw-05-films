@@ -9,6 +9,14 @@
   width: 500px;
 }
 
+.poster {
+  width: 375px;
+  margin-right: 50px;
+}
+
+
+/* Additional Information */
+
 .addInfo {
   padding-top: 16px;
   padding-bottom: 16px;
@@ -24,15 +32,25 @@
   margin-bottom: 0;
 }
 
-.poster {
-  width: 375px;
-  margin-right: 50px;
-}
-
 .link {
   text-decoration: none;
   color: black;
 }
 .link:hover {
   color: #1976d2;
+}
+
+
+/* Genre styles */
+
+.genre {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid black;
+}
+.genre:first-child {
+  padding-left: 0;
+}
+.genre:last-child {
+  border: none;
 }

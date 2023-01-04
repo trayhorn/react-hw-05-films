@@ -16,20 +16,26 @@ export default function Cast() {
       .then(data => setCast(data.cast));
   }, [movieId]);
 
+  if (!cast) {
+    return;
+  }
+
   return (
     <ul className="actorsList">
-      {cast &&
-        cast.map(actor => (
-          <li className="actorCard" key={actor.cast_id}>
-            <img
-              className="actorsImage"
-              src={`https://image.tmdb.org/t/p/original${actor.profile_path}`}
-              alt={actor.profile_path}
-            />
-            <p>Character: {actor.character}</p>
-            <p>{actor.name}</p>
-          </li>
-        ))}
+      {cast.map(
+        ({ cast_id, profile_path, character, name }) =>
+          profile_path && (
+            <li className="actorCard" key={cast_id}>
+              <img
+                className="actorsImage"
+                src={`https://image.tmdb.org/t/p/original${profile_path}`}
+                alt={profile_path}
+              />
+              <p>Character: {character}</p>
+              <p>{name}</p>
+            </li>
+          ),
+      )}
     </ul>
   );
 }

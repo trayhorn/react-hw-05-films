@@ -1,5 +1,6 @@
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import Button from '@mui/material/Button';
 import './FilmInfo.css';
 import { KEY, baseURL } from '../../api';
 
@@ -21,34 +22,34 @@ export default function FilmInfo() {
     return;
   }
 
-  const { poster_path, title, runtime, overview } = filmCard;
+  const { poster_path, title, runtime, overview, genres } = filmCard;
 
   return (
-    <section>
-      <div className="filmBox">
+    <main>
+      <section className="filmBox">
         <img
           className="poster"
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={`${title} poster`}
         />
         <div className="filmInfo">
-          <p>
-            <b>{title}</b>
-          </p>
+          <p>{title}</p>
           <p>Runtime: {runtime} min</p>
-          <p>
-            <b>Overview</b>
-          </p>
+          <p>Overview</p>
           <p>{overview}</p>
+          <p>Genres</p>
           <p>
-            <b>Genres</b>
+            {genres.map(genre => (
+              <span className="genre">{genre.name} </span>
+            ))}
           </p>
-          <p>Random Genres</p>
           <NavLink className="link" to={backLinkHref}>
-            Back to movies
+            <Button sx={{ marginTop: '200px' }} variant="contained">
+              Back to movies
+            </Button>
           </NavLink>
         </div>
-      </div>
+      </section>
       <div className="addInfo">
         <p className="addInfoTitle">Additional information</p>
         <ul className="addInfoList">
@@ -65,6 +66,6 @@ export default function FilmInfo() {
         </ul>
       </div>
       <Outlet />
-    </section>
+    </main>
   );
 }

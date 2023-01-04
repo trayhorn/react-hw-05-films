@@ -4,19 +4,11 @@
   margin-right: auto;
 }
 
-.navLink {
-  text-decoration: none;
-}
-
 header {
   border-bottom: 1px solid black;
 }
 
-hr {
-  margin: 0;
-}
-
-ul {
-  padding-left: 20px;
+.navLink {
+  text-decoration: none;
 }
 

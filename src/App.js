@@ -15,12 +15,12 @@ function App() {
       <header>
         <nav>
           <NavLink className="navLink" to="/">
-            <Button sx={{ margin: '10px' }} variant="text">
+            <Button sx={{ margin: '10px' }} variant="contained">
               Home
             </Button>
           </NavLink>
           <NavLink className="navLink" to="/movies">
-            <Button sx={{ margin: '10px' }} variant="text">
+            <Button sx={{ margin: '10px' }} variant="contained">
               Movies
             </Button>
           </NavLink>

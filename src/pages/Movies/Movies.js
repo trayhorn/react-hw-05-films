@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import s from '../Home/Home.module.css';
+import SearchBox from '../../components/SearchBox/SearchBox';
 import { KEY, baseURL } from '../../api';
 
 export default function Movies() {
@@ -28,28 +28,26 @@ export default function Movies() {
 
   return (
     <main>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-        <TextField
-          onChange={handleChange}
-          value={query}
-          sx={{ marginTop: '20px' }}
-          id="standard-search"
-          label="Search field"
-          type="search"
-          variant="standard"
-        />
-        <Button sx={{ margin: '33px 0 0 10px' }} variant="text" type="submit">
-          Search
-        </Button>
-      </form>
-      {queryFilms &&
-        queryFilms.map(({ id, title }) => (
-          <ul>
+      <SearchBox
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        params={query}
+      />
+      {queryFilms && (
+        <ul className={s.filmsList}>
+          {queryFilms.map(({ id, title }) => (
             <li key={id}>
-              <NavLink to={`${id}`} state={{from: location}}>{title}</NavLink>
+              <NavLink
+                className={s.movieLink}
+                to={`${id}`}
+                state={{ from: location }}
+              >
+                {title}
+              </NavLink>
             </li>
-          </ul>
-        ))}
+          ))}
+        </ul>
+      )}
     </main>
   );
 }

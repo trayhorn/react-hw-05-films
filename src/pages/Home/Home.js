@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import './Home.css';
+import s from './Home.module.css';
 import { KEY, baseURL } from '../../api';
 
 
@@ -16,12 +16,14 @@ export default function Home() {
   return (
     <>
       <h1>Trending today</h1>
-      <ul>
+      <ul className={s.filmsList}>
         {trendMovies.map(({ id, title, name }) => {
           return (
-            <NavLink className="movieLink" key={id} to={`/movies/${id}`}>
-              <li>{title || name}</li>
-            </NavLink>
+            <li>
+              <NavLink className={s.movieLink} key={id} to={`/movies/${id}`}>
+                {title || name}
+              </NavLink>
+            </li>
           );
         })}
       </ul>
