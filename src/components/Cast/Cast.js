@@ -1,4 +1,4 @@
-import "./Cast.css";
+import s from './Cast.module.css';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
@@ -21,18 +21,18 @@ export default function Cast() {
   }
 
   return (
-    <ul className="actorsList">
+    <ul className={s.actorsList}>
       {cast.map(
         ({ cast_id, profile_path, character, name }) =>
           profile_path && (
-            <li className="actorCard" key={cast_id}>
+            <li className={s.actorCard} key={cast_id}>
               <img
-                className="actorsImage"
+                className={s.actorsImage}
                 src={`https://image.tmdb.org/t/p/original${profile_path}`}
                 alt={profile_path}
               />
-              <p>Character: {character}</p>
-              <p>{name}</p>
+              <p className={s.charName}>{character}</p>
+              <p className={s.actorName}>{name}</p>
             </li>
           ),
       )}

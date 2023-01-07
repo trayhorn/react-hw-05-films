@@ -1,6 +1,35 @@
-.filmsList {
-  padding-left: 20px;
+.home {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background-color: #E7ECEF;
 }
+
+.title {
+  margin-top: 0;
+  text-align: center;
+}
+
+.poster {
+  width: 220px;
+}
+
+.filmsList {
+  list-style: none;
+  padding-left: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.filmName {
+  text-align: center;
+  margin: 10px 0 0 0;
+}
+
+.listItem {
+  margin: 15px;
+  width: calc((100% - 150px) / 5);
+}
+
 
 .movieLink {
   text-decoration: none;

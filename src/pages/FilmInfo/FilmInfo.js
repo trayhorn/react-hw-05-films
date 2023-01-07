@@ -1,7 +1,7 @@
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
-import './FilmInfo.css';
+import s from './FilmInfo.module.css';
 import { KEY, baseURL } from '../../api';
 
 
@@ -25,46 +25,50 @@ export default function FilmInfo() {
   const { poster_path, title, runtime, overview, genres } = filmCard;
 
   return (
-    <main>
-      <section className="filmBox">
+    <main className={s.filmSection}>
+      <section className={s.filmBox}>
         <img
-          className="poster"
+          className={s.poster}
           src={`https://image.tmdb.org/t/p/original${poster_path}`}
           alt={`${title} poster`}
         />
-        <div className="filmInfo">
-          <p>{title}</p>
+        <div className={s.mainInfo}>
+          <h1>{title}</h1>
           <p>Runtime: {runtime} min</p>
-          <p>Overview</p>
+          <p>
+            <b>Overview</b>
+          </p>
           <p>{overview}</p>
-          <p>Genres</p>
+          <p>
+            <b>Genres</b>
+          </p>
           <p>
             {genres.map(genre => (
-              <span className="genre">{genre.name} </span>
+              <span className={s.genre}>{genre.name} </span>
             ))}
           </p>
-          <NavLink className="link" to={backLinkHref}>
+          <NavLink className={s.link} to={backLinkHref}>
             <Button sx={{ marginTop: '200px' }} variant="contained">
               Back to movies
             </Button>
           </NavLink>
         </div>
       </section>
-      <div className="addInfo">
-        <p className="addInfoTitle">Additional information</p>
-        <ul className="addInfoList">
-          <li>
-            <NavLink className="link" to="cast">
+      <section className={s.addInfo}>
+        <h2 className={s.addInfoTitle}>Additional information</h2>
+        <ul className={s.addInfoList}>
+          <li className={s.cast}>
+            <NavLink className={s.link} to="cast">
               Cast
             </NavLink>
           </li>
           <li>
-            <NavLink className="link" to="reviews">
+            <NavLink className={s.link} to="reviews">
               Reviews
             </NavLink>
           </li>
         </ul>
-      </div>
+      </section>
       <Outlet />
     </main>
   );

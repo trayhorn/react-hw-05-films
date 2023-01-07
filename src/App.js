@@ -15,7 +15,12 @@ function App() {
       <header>
         <nav>
           <NavLink className="navLink" to="/">
-            <Button sx={{ margin: '10px' }} variant="contained">
+            <Button
+              sx={{
+                margin: '10px',
+              }}
+              variant="contained"
+            >
               Home
             </Button>
           </NavLink>
@@ -29,9 +34,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path='/movies/:movieId' element={<FilmInfo />}>
-          <Route path='cast' element={<Cast />} />
-          <Route path='reviews' element={<Reviews />} />
+        <Route path="/movies/:movieId" element={<FilmInfo />}>
+          <Route path="cast" element={<Cast />} />
+          <Route path="reviews" element={<Reviews />} />
         </Route>
       </Routes>
     </div>

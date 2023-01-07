@@ -18,9 +18,11 @@ export default function Reviews() {
   return (
     <ul>
       {reviews &&
-        reviews.map(({id, author, content}) => (
+        reviews.map(({ id, author, content }) => (
           <li key={id}>
-            <b>{author}</b>
+            <p>
+              <b>{author}</b>
+            </p>
             <p>{content}</p>
           </li>
         ))}

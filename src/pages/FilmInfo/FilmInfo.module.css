@@ -1,11 +1,18 @@
+.filmSection {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #E7ECEF;
+}
+
 .filmBox {
   display: flex;
-  margin-top: 22px;
   padding-bottom: 22px;
   border-bottom: 1px solid black;
 }
 
-.filmInfo {
+.mainInfo {
   width: 500px;
 }
 
@@ -20,16 +27,19 @@
 .addInfo {
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-bottom: 20px;
   border-bottom: 1px solid black;
 }
 
 .addInfoTitle {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .addInfoList {
   margin-bottom: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
 }
 
 .link {
@@ -38,6 +48,10 @@
 }
 .link:hover {
   color: #1976d2;
+}
+
+.cast {
+  margin-right: 20px;
 }
 
 

@@ -5,7 +5,8 @@
 }
 
 header {
-  border-bottom: 1px solid black;
+  background-color: #6096BA;
+  padding: 15px 30px 15px 30px;
 }
 
 .navLink {
