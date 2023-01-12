@@ -2,17 +2,17 @@
 .actorsList {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   list-style: none;
   padding: 0;
 }
 
 .actorsImage {
-  width: 150px;
+  width: 100%;
 }
 
 .actorCard {
-  width: 150px;
+  margin: 15px;
+  width: calc((100% - 180px) / 6);
 }
 
 .charName {

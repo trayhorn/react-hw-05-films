@@ -1,11 +1,11 @@
 .home {
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding: 20px 30px;
   background-color: #E7ECEF;
 }
 
 .title {
   margin-top: 0;
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -14,8 +14,9 @@
 }
 
 .filmsList {
+  margin: 0;
+  padding: 0;
   list-style: none;
-  padding-left: 20px;
   display: flex;
   flex-wrap: wrap;
 }
