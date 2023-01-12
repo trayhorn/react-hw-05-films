@@ -15,6 +15,10 @@ export default function Reviews() {
       .then(data => setReview(data.results));
   }, [movieId]);
 
+  if (!reviews) {
+    return;
+  }
+
   return (
     <ul>
       {reviews &&
@@ -28,5 +32,4 @@ export default function Reviews() {
         ))}
     </ul>
   );
-  
 }
