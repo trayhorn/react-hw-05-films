@@ -1,5 +1,6 @@
 .moviesPage {
   padding: 20px 30px 0 30px;
   background-color: #E7ECEF;
+  min-height: 85vh;
 }
 
