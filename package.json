@@ -2,7 +2,6 @@
   "name": "react-hw-05-films",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://trayhorn.github.io/react-hw-05-films/",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
