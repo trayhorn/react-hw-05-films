@@ -1,5 +1,6 @@
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
+import { nanoid } from 'nanoid'
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
 import { KEY, baseURL } from '../../api';
@@ -22,7 +23,7 @@ export default function FilmInfo() {
     return;
   }
 
-  const { poster_path, title, runtime, overview, genres } = filmCard;
+  const { id, poster_path, title, runtime, overview, genres } = filmCard;
 
   return (
     <main className={s.filmSection}>
@@ -43,8 +44,8 @@ export default function FilmInfo() {
             <b>Genres</b>
           </p>
           <p>
-            {genres.map(genre => (
-              <span className={s.genre}>{genre.name} </span>
+            {genres.map(({id, name}) => (
+              <span key={id} className={s.genre}>{name} </span>
             ))}
           </p>
           <NavLink className={s.link} to={backLinkHref}>
@@ -58,12 +59,26 @@ export default function FilmInfo() {
         <h2 className={s.addInfoTitle}>Additional information</h2>
         <ul className={s.addInfoList}>
           <li className={s.cast}>
-            <NavLink className={s.link} to="cast">
+            <NavLink
+              className={s.link}
+              to={
+                location.pathname.includes('cast')
+                  ? `/movies/${movieId}`
+                  : 'cast'
+              }
+            >
               Cast
             </NavLink>
           </li>
           <li>
-            <NavLink className={s.link} to="reviews">
+            <NavLink
+              className={s.link}
+              to={
+                location.pathname.includes('reviews')
+                  ? `/movies/${movieId}`
+                  : 'reviews'
+              }
+            >
               Reviews
             </NavLink>
           </li>

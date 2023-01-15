@@ -27,8 +27,14 @@
 }
 
 .listItem {
-  margin: 15px;
+  padding: 15px;
   width: calc((100% - 150px) / 5);
+}
+.listItem:hover {
+  background-color: #274C77;
+}
+.listItem:hover .movieLink {
+  color: #FFFF;
 }
 
 
@@ -36,7 +42,7 @@
   text-decoration: none;
   color: black;
 }
-.movieLink:hover {
-  color: #1976d2;
-}
+/* .movieLink:hover {
+  color: #FFFF;
+} */
 

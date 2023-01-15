@@ -23,9 +23,9 @@ export default function Cast() {
   return (
     <ul className={s.actorsList}>
       {cast.map(
-        ({ cast_id, profile_path, character, name }) =>
+        ({ id, profile_path, character, name }) =>
           profile_path && (
-            <li className={s.actorCard} key={cast_id}>
+            <li className={s.actorCard} key={id}>
               <img
                 className={s.actorsImage}
                 src={`https://image.tmdb.org/t/p/original${profile_path}`}
