@@ -1,6 +1,5 @@
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
-import { nanoid } from 'nanoid'
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
 import { KEY, baseURL } from '../../api';
@@ -23,7 +22,7 @@ export default function FilmInfo() {
     return;
   }
 
-  const { id, poster_path, title, runtime, overview, genres } = filmCard;
+  const { poster_path, title, runtime, overview, genres } = filmCard;
 
   return (
     <main className={s.filmSection}>
