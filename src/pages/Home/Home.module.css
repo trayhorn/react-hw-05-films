@@ -29,6 +29,9 @@
 .listItem {
   padding: 15px;
   width: calc((100% - 150px) / 5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .listItem:hover {
   background-color: #274C77;
