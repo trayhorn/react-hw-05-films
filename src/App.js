@@ -20,6 +20,7 @@ function App() {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
+        <Route path="*" element={<p>Nothing is here</p>} />
       </Routes>
     </div>
   );
