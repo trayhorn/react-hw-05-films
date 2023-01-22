@@ -6,6 +6,7 @@ import FilmInfo from './pages/FilmInfo';
 import Cast from './components/Cast';
 import Reviews from './components/Reviews';
 import SharedLayout from 'components/SharedLayout';
+import NotFound from 'pages/NotFound/NotFound';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             <Route path="reviews" element={<Reviews />} />
           </Route>
         </Route>
-        <Route path="*" element={<p>Nothing is here</p>} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );
