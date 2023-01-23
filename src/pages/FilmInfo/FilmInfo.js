@@ -2,7 +2,7 @@ import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
-import { KEY, baseURL } from '../../api';
+import { fetchFilmInfo } from '../../api';
 
 
 export default function FilmInfo() {
@@ -11,9 +11,9 @@ export default function FilmInfo() {
   const {movieId} = useParams()
 
   useEffect(() => {
-    fetch(`${baseURL}movie/${movieId}?api_key=${KEY}&language=en-US`)
-      .then(r => r.json())
-      .then(data => setFilmCard(data));
+    fetchFilmInfo(movieId)
+      .then(response => setFilmCard(response))
+      .catch(error => console.log(error));
   }, [movieId]);
 
   const backLinkHref = location.state?.from ?? '/';

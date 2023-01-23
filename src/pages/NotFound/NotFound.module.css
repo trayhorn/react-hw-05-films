@@ -1,8 +1,9 @@
 .page {
-  padding: 20px 30px;
-  margin-top: 87px;
+  padding-top: 175px;
+  padding-bottom: 175px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   font-family: 'Nunito Sans', sans-serif;
-  height: 85vh;
   background-color: #95c2de;
 }
 

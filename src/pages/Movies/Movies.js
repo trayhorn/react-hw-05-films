@@ -3,7 +3,7 @@ import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
 import s from '../Home/Home.module.css';
 import style from './Movies.module.css';
 import SearchBox from '../../components/SearchBox/SearchBox';
-import { KEY, baseURL } from '../../api';
+import { fetchRequestedFilm } from '../../api';
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -19,11 +19,9 @@ export default function Movies() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(
-      `${baseURL}search/movie?api_key=${KEY}&language=en-US&query=${query}`,
-    )
-      .then(r => r.json())
-      .then(data => setQueryFilms(data.results));
+    fetchRequestedFilm(query)
+      .then(response => setQueryFilms([...response]))
+      .catch(error => console.log(error));
   };
 
 

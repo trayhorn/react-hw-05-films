@@ -1,16 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import s from './Home.module.css';
-import { KEY, baseURL } from '../../api';
+import { fetchTrendFilms } from '../../api';
 
 
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
 
   useEffect(() => {
-    fetch(`${baseURL}trending/movie/day?api_key=${KEY}`)
-      .then(r => r.json())
-      .then(data => setTrendMovies([...data.results]));
+    fetchTrendFilms()
+      .then(response => setTrendMovies([...response]))
+      .catch(error => console.log(error));
   }, []);
 
 
