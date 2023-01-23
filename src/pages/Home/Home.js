@@ -2,21 +2,28 @@ import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import s from './Home.module.css';
 import { fetchTrendFilms } from '../../api';
+import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
 
 
 export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     fetchTrendFilms()
       .then(response => setTrendMovies([...response]))
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) {
+          setError(true);
+        }
+      });
   }, []);
 
 
   return (
     <main className={s.home}>
       <h1 className={s.title}>Trending today</h1>
+      {error && <ErrorMessage />}
       <ul className={s.filmsList}>
         {trendMovies.map(({ id, title, name, poster_path }) => {
           return (

@@ -3,17 +3,23 @@ import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
 import { fetchFilmInfo } from '../../api';
+import ErrorMessage from "components/ErrorMessage/ErrorMessage";
 
 
 export default function FilmInfo() {
   const [filmCard, setFilmCard] = useState(null);
+  const [error, setError] = useState(false);
   const location = useLocation();
   const {movieId} = useParams()
 
   useEffect(() => {
     fetchFilmInfo(movieId)
       .then(response => setFilmCard(response))
-      .catch(error => console.log(error));
+      .catch(error => {
+        if (error) {
+          setError(true);
+        }
+      });
   }, [movieId]);
 
   const backLinkHref = location.state?.from ?? '/';
@@ -26,6 +32,7 @@ export default function FilmInfo() {
 
   return (
     <main className={s.filmSection}>
+      {error && <ErrorMessage />}
       <section className={s.filmBox}>
         <img
           className={s.poster}
@@ -43,8 +50,10 @@ export default function FilmInfo() {
             <b>Genres</b>
           </p>
           <p>
-            {genres.map(({id, name}) => (
-              <span key={id} className={s.genre}>{name} </span>
+            {genres.map(({ id, name }) => (
+              <span key={id} className={s.genre}>
+                {name}{' '}
+              </span>
             ))}
           </p>
           <NavLink className={s.link} to={backLinkHref}>
