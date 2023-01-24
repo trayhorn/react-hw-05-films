@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
 import s from '../Home/Home.module.css';
 import style from './Movies.module.css';
-import SearchBox from '../../components/SearchBox/SearchBox';
-import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
+import SearchBox from '../../components/SearchBox';
+import ErrorMessage from 'components/ErrorMessage';
 import { fetchRequestedFilm } from '../../api';
 
 export default function Movies() {
@@ -50,11 +50,13 @@ export default function Movies() {
                     to={`${id}`}
                     state={{ from: location }}
                   >
-                    <img
-                      className={s.poster}
-                      src={`https://image.tmdb.org/t/p/original${poster_path}`}
-                      alt=""
-                    />
+                    <div className={s.posterBox}>
+                      <img
+                        className={s.poster}
+                        src={`https://image.tmdb.org/t/p/original${poster_path}`}
+                        alt=""
+                      />
+                    </div>
                     <p className={s.filmName}>{title || name}</p>
                   </NavLink>
                 </li>

@@ -9,8 +9,19 @@
   text-align: center;
 }
 
+.posterBox {
+  width: 230px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .poster {
   width: 220px;
+  height: 330px;
+  object-fit: cover;
+  display: block;
 }
 
 .filmsList {
@@ -29,9 +40,6 @@
 .listItem {
   padding: 15px;
   width: calc((100% - 150px) / 5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .listItem:hover {
   background-color: #274C77;
@@ -45,7 +53,4 @@
   text-decoration: none;
   color: black;
 }
-/* .movieLink:hover {
-  color: #FFFF;
-} */
 

@@ -1,6 +1,7 @@
 .searchForm {
   margin-bottom: 20px;
   margin-left: 15px;
+  width: fit-content;
   display: flex;
   align-items: baseline;
 }

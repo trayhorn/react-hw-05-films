@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import s from './Home.module.css';
-import { fetchTrendFilms } from '../../api';
-import ErrorMessage from 'components/ErrorMessage/ErrorMessage';
+import { fetchTrendFilms } from 'api';
+import ErrorMessage from 'components/ErrorMessage';
 
 
 export default function Home() {
@@ -29,11 +29,13 @@ export default function Home() {
           return (
             <li key={id} className={s.listItem}>
               <NavLink className={s.movieLink} to={`/movies/${id}`}>
-                <img
-                  className={s.poster}
-                  src={`https://image.tmdb.org/t/p/original${poster_path}`}
-                  alt=""
-                />
+                <div className={s.posterBox}>
+                  <img
+                    className={s.poster}
+                    src={`https://image.tmdb.org/t/p/original${poster_path}`}
+                    alt={`${title}`}
+                  />
+                </div>
                 <p className={s.filmName}>{title || name}</p>
               </NavLink>
             </li>

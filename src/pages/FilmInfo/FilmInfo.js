@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
 import { fetchFilmInfo } from '../../api';
-import ErrorMessage from "components/ErrorMessage/ErrorMessage";
+import ErrorMessage from "components/ErrorMessage";
 
 
 export default function FilmInfo() {
