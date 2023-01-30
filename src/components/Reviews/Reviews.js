@@ -1,19 +1,19 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { fetchReviews } from 'api';
+import s from './Reviews.module.css';
+import { useGetFilmReviewsQuery } from 'redux/MoviesApi';
 
 export default function Reviews() {
-  const [reviews, setReview] = useState([]);
   const { movieId } = useParams();
 
-  useEffect(() => {
-    fetchReviews(movieId)
-      .then(data => setReview(data.results))
-      .catch(error => console.log(error));
-  }, [movieId]);
+  const { data } = useGetFilmReviewsQuery(movieId);
 
+  if (!data) {
+    return;
+  }
+
+  const reviews = data.results;
   return (
-    <ul style={{padding: 0}}>
+    <ul className={s.list}>
       {reviews.length !== 0 ? (
         reviews.map(({ id, author, content }) => (
           <li key={id}>

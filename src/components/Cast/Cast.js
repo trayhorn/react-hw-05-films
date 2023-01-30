@@ -1,39 +1,28 @@
-import s from './Cast.module.css';
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import { fetchFilmCast } from 'api';
+import { useGetFilmCastQuery } from 'redux/MoviesApi';
+import ActorCard from './ActorCard';
+import s from './Cast.module.css';
 
 export default function Cast() {
-  const [cast, setCast] = useState(null);
   const { movieId } = useParams();
+  const { data } = useGetFilmCastQuery(movieId);
 
-
-  useEffect(() => {
-    fetchFilmCast(movieId)
-      .then(data => setCast(data.cast))
-      .catch(error => {
-        console.log(error);
-      });
-  }, [movieId]);
-
-  if (!cast) {
+  if (!data) {
     return;
   }
 
   return (
     <ul className={s.actorsList}>
-      {cast.map(
-        ({ id, profile_path, character, name }) =>
+      {data.cast.map(
+        ({ id, profile_path, name, character }) =>
           profile_path && (
-            <li className={s.actorCard} key={id}>
-              <img
-                className={s.actorsImage}
-                src={`https://image.tmdb.org/t/p/original${profile_path}`}
-                alt={profile_path}
-              />
-              <p className={s.charName}>{character}</p>
-              <p className={s.actorName}>{name}</p>
-            </li>
+            <ActorCard
+              key={id}
+              id={id}
+              image={profile_path}
+              name={name}
+              character={character}
+            />
           ),
       )}
     </ul>

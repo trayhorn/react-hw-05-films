@@ -1,38 +1,26 @@
 import { useParams, useLocation, NavLink, Outlet } from "react-router-dom";
-import { useState, useEffect } from 'react';
+import { useGetFilmInfoQuery } from "redux/MoviesApi";
+import ErrorMessage from "components/ErrorMessage";
 import Button from '@mui/material/Button';
 import s from './FilmInfo.module.css';
-import { fetchFilmInfo } from '../../api';
-import ErrorMessage from "components/ErrorMessage";
 
 
 export default function FilmInfo() {
-  const [filmCard, setFilmCard] = useState(null);
-  const [error, setError] = useState(false);
   const location = useLocation();
-  const {movieId} = useParams()
+  const { movieId } = useParams()
 
-  useEffect(() => {
-    fetchFilmInfo(movieId)
-      .then(response => setFilmCard(response))
-      .catch(error => {
-        if (error) {
-          setError(true);
-        }
-      });
-  }, [movieId]);
+  const { data: filmInfo } = useGetFilmInfoQuery(movieId);
 
   const backLinkHref = location.state?.from ?? '/';
 
-  if (!filmCard) {
+  if (!filmInfo) {
     return;
   }
 
-  const { poster_path, title, runtime, overview, genres } = filmCard;
+  const { poster_path, title, runtime, overview, genres } = filmInfo;
 
   return (
     <main className={s.filmSection}>
-      {error && <ErrorMessage />}
       <section className={s.filmBox}>
         <img
           className={s.poster}

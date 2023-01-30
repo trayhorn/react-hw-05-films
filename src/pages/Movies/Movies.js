@@ -1,47 +1,45 @@
 import { useState } from 'react';
 import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
-import s from '../Home/Home.module.css';
-import style from './Movies.module.css';
+import { useGetRequestedMoviesQuery } from 'redux/MoviesApi';
 import SearchBox from '../../components/SearchBox';
 import ErrorMessage from 'components/ErrorMessage';
-import { fetchRequestedFilm } from '../../api';
+import s from '../Home/Home.module.css';
+import style from './Movies.module.css';
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [queryFilms, setQueryFilms] = useState([]);
-  const [error, setError] = useState(false);
+  const [skip, setSkip] = useState(true);
   const location = useLocation();
 
   const query = searchParams.get('query') ?? '';
 
+  const { data } = useGetRequestedMoviesQuery(query, {
+    skip,
+  });
+
+
   const handleChange = (e) => {
+    setSkip(true);
     const value = e.target.value;
     setSearchParams( value !== '' ? { query: value } : {});
   }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchRequestedFilm(query)
-      .then(response => setQueryFilms([...response]))
-      .catch(error => {
-        if (error) {
-          setError(true);
-        }
-      });
+    setSkip(false);
   };
 
 
   return (
     <main className={style.moviesPage}>
       <SearchBox
-        handleSubmit={handleSubmit}
+        handleSubmit={(handleSubmit)}
         handleChange={handleChange}
         params={query}
       />
-      {error && <ErrorMessage />}
-      {queryFilms && (
+      {data && (
         <ul className={s.filmsList}>
-          {queryFilms.map(
+          {data.results.map(
             ({ id, title, name, poster_path }) =>
               poster_path && (
                 <li key={id} className={s.listItem}>
