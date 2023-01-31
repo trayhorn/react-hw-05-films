@@ -5,9 +5,11 @@ import './SharedLayout.css';
 
 export default function SharedLayout() {
   return (
-    <div className='App'>
+    <div className="App">
       <AppBar />
-      <Outlet />
+      <main className="sharedContainer">
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );

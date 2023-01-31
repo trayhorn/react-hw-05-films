@@ -1,0 +1,34 @@
+/* Main info */
+
+.filmBox {
+  display: flex;
+  padding-bottom: 22px;
+  border-bottom: 1px solid black;
+}
+
+.mainInfo {
+  width: 500px;
+}
+
+.poster {
+  width: 375px;
+  margin-right: 50px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+/* Genre styles */
+
+.genre {
+  padding-left: 10px;
+  padding-right: 10px;
+  border-right: 1px solid black;
+}
+.genre:first-child {
+  padding-left: 0;
+}
+.genre:last-child {
+  border: none;
+}

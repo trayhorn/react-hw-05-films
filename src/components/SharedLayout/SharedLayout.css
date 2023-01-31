@@ -4,6 +4,12 @@
   margin-right: auto;
 }
 
+.sharedContainer {
+  padding: 20px 30px;
+  background-color: #E7ECEF;
+  min-height: 85vh;
+}
+
 header {
   background-color: #6096BA;
   padding: 15px 30px 15px 30px;

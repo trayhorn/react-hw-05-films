@@ -2,17 +2,26 @@ import { NavLink } from 'react-router-dom';
 import s from './Home.module.css';
 import ErrorMessage from 'components/ErrorMessage';
 import { useGetTrendFilmsQuery } from 'redux/MoviesApi';
+import { Loading } from 'notiflix';
 
 
 export default function Home() {
-  const { data: trendFilms } = useGetTrendFilmsQuery();
+  const {
+    data: trendFilms,
+    isFetching,
+    isLoading,
+    error,
+  } = useGetTrendFilmsQuery();
 
   return (
-    <main className={s.home}>
+    <>
       <h1 className={s.title}>Trending today</h1>
-      <ul className={s.filmsList}>
-        {trendFilms &&
-          trendFilms.results.map(({ id, title, name, poster_path }) => {
+      {error && <ErrorMessage />}
+      {isLoading && Loading.circle()}
+      {!isFetching && Loading.remove(200)}
+      {!isFetching && (
+        <ul className={s.filmsList}>
+          {trendFilms.results.map(({ id, title, name, poster_path }) => {
             return (
               <li key={id} className={s.listItem}>
                 <NavLink className={s.movieLink} to={`/movies/${id}`}>
@@ -28,7 +37,8 @@ export default function Home() {
               </li>
             );
           })}
-      </ul>
-    </main>
+        </ul>
+      )}
+    </>
   );
 }

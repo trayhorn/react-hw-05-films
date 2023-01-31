@@ -4,7 +4,7 @@ import { useGetRequestedMoviesQuery } from 'redux/MoviesApi';
 import SearchBox from '../../components/SearchBox';
 import ErrorMessage from 'components/ErrorMessage';
 import s from '../Home/Home.module.css';
-import style from './Movies.module.css';
+
 
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -13,7 +13,7 @@ export default function Movies() {
 
   const query = searchParams.get('query') ?? '';
 
-  const { data } = useGetRequestedMoviesQuery(query, {
+  const { data, error } = useGetRequestedMoviesQuery(query, {
     skip,
   });
 
@@ -31,12 +31,13 @@ export default function Movies() {
 
 
   return (
-    <main className={style.moviesPage}>
+    <>
       <SearchBox
-        handleSubmit={(handleSubmit)}
+        handleSubmit={handleSubmit}
         handleChange={handleChange}
         params={query}
       />
+      {error && <ErrorMessage />}
       {data && (
         <ul className={s.filmsList}>
           {data.results.map(
@@ -62,6 +63,6 @@ export default function Movies() {
           )}
         </ul>
       )}
-    </main>
+    </>
   );
 }
