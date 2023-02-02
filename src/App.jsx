@@ -5,7 +5,7 @@ import FilmInfo from './pages/FilmInfo';
 import Cast from './components/Cast';
 import Reviews from './components/Reviews';
 import SharedLayout from 'components/SharedLayout';
-import NotFound from 'pages/NotFound/NotFound';
+import NotFound from 'pages/NotFound';
 
 
 function App() {

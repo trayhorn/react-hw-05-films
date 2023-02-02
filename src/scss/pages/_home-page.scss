@@ -1,0 +1,52 @@
+.home_title {
+  margin-top: 0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.posterBox {
+  width: 230px;
+  height: 330px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  display: block;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+
+  &_item {
+    padding: 15px;
+    width: calc((100% - 150px) / 5);
+
+    &:hover {
+      background-color: #274C77;
+    }
+  }
+
+  &_name {
+    text-align: center;
+    margin: 10px 0 0 0;
+  }
+
+  &_link {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+.list_item:hover .list_link {
+  color: #FFFF;
+}
+
