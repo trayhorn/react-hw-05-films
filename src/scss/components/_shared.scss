@@ -4,15 +4,20 @@
   margin-right: auto;
 }
 
-.sharedContainer {
+header {
+  background-color: #6096BA;
+  padding: 15px 30px 15px 30px;
+}
+
+main {
   padding: 20px 30px;
   background-color: #E7ECEF;
   min-height: 85vh;
 }
 
-header {
+footer {
   background-color: #6096BA;
-  padding: 15px 30px 15px 30px;
+  height: 87px;
 }
 
 .navLink {

@@ -8,7 +8,6 @@ export default function Home() {
   const {
     data: trendFilms,
     isFetching,
-    isLoading,
     error,
   } = useGetTrendFilmsQuery();
 
@@ -16,7 +15,7 @@ export default function Home() {
     <>
       <h1 className="home_title">Trending today</h1>
       {error && <ErrorMessage />}
-      {isLoading && Loading.circle()}
+      {isFetching && Loading.circle()}
       {!isFetching && Loading.remove(200)}
       {!isFetching && (
         <ul className="list">

@@ -6,7 +6,7 @@ export default function SharedLayout() {
   return (
     <div className="App">
       <AppBar />
-      <main className="sharedContainer">
+      <main>
         <Outlet />
       </main>
       <Footer />

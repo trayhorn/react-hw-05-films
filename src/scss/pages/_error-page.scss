@@ -1,29 +1,20 @@
-.errorPage {
-  padding-top: 175px;
-  padding-bottom: 175px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  font-family: 'Nunito Sans', sans-serif;
-  background-color: #95c2de;
+.errorPage__text {
+  text-align: center;
+  font-size: 1.6rem;
+}
 
-  &_error {
-    color: #ffffff;
-    font-size: 11rem;
-    margin: 0;
-    text-align: center;
-  }
+.errorPage_error {
+  color: #ffffff;
+  font-size: 11rem;
+  margin: 0;
+  text-align: center;
+}
 
-  &_message {
-    text-align: center;
-    font-size: 1.6rem;
-  }
+.errorPage_link {
+  text-decoration: none;
+  color: white;
 
-  &_link {
-    text-decoration: none;
-    color: white;
-
-    &:hover {
-      text-decoration: underline;
-    }
+  &:hover {
+    text-decoration: underline;
   }
 }
