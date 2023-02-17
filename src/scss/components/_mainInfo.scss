@@ -8,10 +8,20 @@
 
 .mainInfo {
   width: 500px;
+  display: flex;
+  flex-direction: column;
+  & > p {
+    margin-bottom: 0;
+  }
+  & > h1 {
+    margin-bottom: 0;
+  }
 
   &_link {
     text-decoration: none;
     color: black;
+    margin-bottom: 0;
+    margin-top: auto;
   }
 }
 

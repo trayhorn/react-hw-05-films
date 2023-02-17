@@ -5,21 +5,28 @@
   padding: 0;
 
   &_image {
+    display: block;
     width: 100%;
   }
 
   &_card {
     margin: 15px;
-    width: calc((100% - 180px) / 6);
+    width: calc((100% - 150px) / 6);
+  }
+  &_card:nth-child(6n+1) {
+    margin-left: 0;
+  }
+  &_card:nth-child(6n) {
+    margin-right: 0;
   }
 
   &_charName {
     text-align: center;
-    margin-bottom: 0;
+    margin: 10px 0 0 0;
   }
 
   &_actorName {
-    margin-top: 5px;
     text-align: center;
+    margin: 10px 0 0 0;
   }
 }

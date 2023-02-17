@@ -31,7 +31,7 @@ export default function MainInfo({ posterImage, title, runtime, overview, genres
           ))}
         </p>
         <NavLink className="mainInfo_link" to={backLinkHref}>
-          <Button sx={{ marginTop: '200px' }} variant="contained">
+          <Button variant="contained">
             Back to movies
           </Button>
         </NavLink>

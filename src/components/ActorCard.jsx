@@ -6,7 +6,7 @@ export default function ActorCard({ id, image, name, character }) {
         src={`https://image.tmdb.org/t/p/original${image}`}
         alt={image}
       />
-      <p className="actorsList_charname">{character}</p>
+      <p className="actorsList_charName">{character}</p>
       <p className="actorsList_actorName">{name}</p>
     </li>
   );
