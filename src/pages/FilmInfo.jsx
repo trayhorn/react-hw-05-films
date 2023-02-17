@@ -1,8 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetFilmInfoQuery } from "redux/MoviesApi";
-import AdditionalInfo from "components/AdditionalInfo";
-import ErrorMessage from "components/ErrorMessage";
-import MainInfo from "components/MainInfo";
+import { AdditionalInfo, ErrorMessage, MainInfo } from '../components';
 
 
 export default function FilmInfo() {

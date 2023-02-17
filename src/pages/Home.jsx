@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom';
-import ErrorMessage from 'components/ErrorMessage';
-import { useGetTrendFilmsQuery } from 'redux/MoviesApi';
 import { Loading } from 'notiflix';
+import { ErrorMessage } from 'components';
+import { NavLink } from 'react-router-dom';
+import { useGetTrendFilmsQuery } from 'redux/MoviesApi';
 
 
 export default function Home() {

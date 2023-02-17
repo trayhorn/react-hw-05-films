@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
+import { SearchBox, ErrorMessage } from '../components';
 import { useGetRequestedMoviesQuery } from 'redux/MoviesApi';
-import SearchBox from '../components/SearchBox';
-import ErrorMessage from 'components/ErrorMessage';
+import { useLocation, useSearchParams, NavLink } from 'react-router-dom';
 
 
 export default function Movies() {

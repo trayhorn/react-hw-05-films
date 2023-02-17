@@ -1,11 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
-import Movies from './pages/Movies';
-import Home from './pages/Home';
-import FilmInfo from './pages/FilmInfo';
-import Cast from './components/Cast';
-import Reviews from './components/Reviews';
-import SharedLayout from 'components/SharedLayout';
-import NotFound from 'pages/NotFound';
+import { Movies, Home, FilmInfo, NotFound } from './pages';
+import { Cast, Reviews, SharedLayout } from './components';
 
 
 function App() {
