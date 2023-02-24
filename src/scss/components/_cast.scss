@@ -12,6 +12,8 @@
   &_card {
     margin: 15px;
     width: calc((100% - 150px) / 6);
+    text-decoration: none;
+    color: black;
   }
   &_card:nth-child(6n+1) {
     margin-left: 0;

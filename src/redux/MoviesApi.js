@@ -27,6 +27,14 @@ export const moviesApi = createApi({
         `movie/${movieId}/credits?api_key=${KEY}&language=en-US`,
       providesTags: ['FilmCast'],
     }),
+    getPersonDetails: builder.query({
+      query: personId => `person/${personId}?api_key=${KEY}&language=en-US`,
+      providesTags: ['PersonDetails'],
+    }),
+    getPersonImages: builder.query({
+      query: personId => `person/${personId}/images?api_key=${KEY}&language=en-US`,
+      providesTags: ['PersonImages'],
+    }),
     getFilmReviews: builder.query({
       query: movieId =>
         `movie/${movieId}/reviews?api_key=${KEY}&language=en-US`,
@@ -40,5 +48,7 @@ export const {
   useGetRequestedMoviesQuery,
   useGetFilmInfoQuery,
   useGetFilmCastQuery,
-  useGetFilmReviewsQuery
+  useGetFilmReviewsQuery,
+  useGetPersonDetailsQuery,
+  useGetPersonImagesQuery
 } = moviesApi;

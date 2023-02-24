@@ -1,6 +1,6 @@
 export default function ActorCard({ id, image, name, character }) {
   return (
-    <li className="actorsList_card" key={id}>
+    <li key={id}>
       <img
         className="actorsList_image"
         src={`https://image.tmdb.org/t/p/original${image}`}

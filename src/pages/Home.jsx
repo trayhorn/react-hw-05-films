@@ -1,4 +1,3 @@
-import { Loading } from 'notiflix';
 import { ErrorMessage } from 'components';
 import { NavLink } from 'react-router-dom';
 import { useGetTrendFilmsQuery } from 'redux/MoviesApi';
@@ -7,7 +6,6 @@ import { useGetTrendFilmsQuery } from 'redux/MoviesApi';
 export default function Home() {
   const {
     data: trendFilms,
-    isFetching,
     error,
   } = useGetTrendFilmsQuery();
 
@@ -15,9 +13,7 @@ export default function Home() {
     <>
       <h1 className="home_title">Trending today</h1>
       {error && <ErrorMessage />}
-      {isFetching && Loading.circle()}
-      {!isFetching && Loading.remove(200)}
-      {!isFetching && (
+      {trendFilms && (
         <ul className="list">
           {trendFilms.results.map(({ id, title, name, poster_path }) => {
             return (

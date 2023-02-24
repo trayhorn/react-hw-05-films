@@ -1,0 +1,44 @@
+/* Main info */
+
+.actor-page {
+  display: flex;
+  padding-bottom: 22px;
+  border-bottom: 1px solid black;
+
+  &__personal-information {
+    display: flex;
+    flex-direction: column;
+    padding-right: 30px;
+
+    & > p {
+      margin-bottom: 0;
+    }
+    & > h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__poster {
+    width: 375px;
+    margin-right: 50px;
+  }
+
+  &__bio {
+    text-align: justify;
+  }
+}
+
+.actor-gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    margin: 15px;
+    width: calc((100% - 150px) / 4);
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+  }
+}

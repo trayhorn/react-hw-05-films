@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Movies, Home, FilmInfo, NotFound } from './pages';
+import { Movies, Home, FilmInfo, NotFound, PersonPage } from './pages';
 import { Cast, Reviews, SharedLayout } from './components';
 
 
@@ -13,6 +13,7 @@ function App() {
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
+        <Route path="person/:personId" element={<PersonPage />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
