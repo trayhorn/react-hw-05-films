@@ -1,5 +1,10 @@
 .reviews-list {
-  padding: 0;
-  list-style: none;
   text-align: justify;
+  display: flex;
+  flex-wrap: wrap;
+
+  &__item {
+    padding: 0 20px 0 20px;
+    width: calc((100% - 80px) / 2);
+  }
 }
