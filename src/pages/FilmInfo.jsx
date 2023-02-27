@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGetFilmInfoQuery } from "redux/MoviesApi";
-import { AdditionalInfo, ErrorMessage, MainInfo } from '../components';
+import { ErrorMessage, MainInfo } from '../components';
 
 
 export default function FilmInfo() {
@@ -22,8 +22,8 @@ export default function FilmInfo() {
         runtime={runtime}
         overview={overview}
         genres={genres}
+        movieId={movieId}
       />
-      <AdditionalInfo movieId={movieId} />
     </>
   );
 }

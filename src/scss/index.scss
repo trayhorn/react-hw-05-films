@@ -2,7 +2,6 @@
 @import './pages/error-page';
 @import './pages/personal-page';
 @import './components/mainInfo';
-@import './components/additionalInfo';
 @import './components/cast';
 @import './components/error-message';
 @import './components/shared';
@@ -12,9 +11,7 @@
 body {
   margin: 0;
   background-color: #274C77;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Roboto, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

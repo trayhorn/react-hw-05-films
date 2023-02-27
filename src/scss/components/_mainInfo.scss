@@ -10,22 +10,23 @@
   width: 500px;
   display: flex;
   flex-direction: column;
-  & > p {
-    margin-bottom: 0;
-  }
-  & > h1 {
-    margin-bottom: 0;
-  }
 
   &_link {
     text-decoration: none;
     color: black;
-    margin-bottom: 0;
-    margin-top: auto;
   }
 }
 
+.link-container {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0;
+  margin-top: auto;
+}
+
 .filmPoster {
+  display: block;
   width: 375px;
   margin-right: 50px;
 }

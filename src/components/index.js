@@ -1,5 +1,4 @@
 export { default as ActorCard } from './ActorCard';
-export { default as AdditionalInfo } from './AdditionalInfo';
 export { default as AddBar } from './AppBar';
 export { default as Cast} from './Cast'
 export {default as ErrorMessage} from './ErrorMessage'
