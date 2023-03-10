@@ -1,7 +1,9 @@
 .App {
-  width: 90%;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  min-height: 100vh;
 }
 
 header {
@@ -10,9 +12,9 @@ header {
 }
 
 main {
+  flex-grow: 1;
   padding: 20px 30px;
   background-color: #E7ECEF;
-  min-height: 85vh;
 }
 
 footer {
