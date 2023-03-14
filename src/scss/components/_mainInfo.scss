@@ -1,13 +1,13 @@
-/* Main info */
-
 .filmBox {
   display: flex;
-  padding-bottom: 22px;
-  border-bottom: 1px solid black;
+}
+
+.poster-wrapper {
+  margin-right: 50px;
 }
 
 .mainInfo {
-  width: 500px;
+  width: 640px;
   display: flex;
   flex-direction: column;
 
@@ -17,18 +17,26 @@
   }
 }
 
+.film-card {
+  &__title {
+    margin-top: 0;
+  }
+}
+
 .link-container {
-  width: 60%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   margin-bottom: 0;
   margin-top: auto;
+
+  &__item {
+    margin-right: 20px;
+  }
 }
 
 .filmPoster {
   display: block;
   width: 375px;
-  margin-right: 50px;
 }
 /* Genre styles */
 

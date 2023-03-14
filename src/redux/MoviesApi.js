@@ -22,6 +22,10 @@ export const moviesApi = createApi({
       query: movieId => `movie/${movieId}?api_key=${KEY}&language=en-US`,
       providesTags: ['FilmInfo'],
     }),
+    getFilmVideos: builder.query({
+      query: movieId => `movie/${movieId}/videos?api_key=${KEY}&language=en-US`,
+      providesTags: ['FilmInfo'],
+    }),
     getFilmCast: builder.query({
       query: movieId =>
         `movie/${movieId}/credits?api_key=${KEY}&language=en-US`,
@@ -32,7 +36,8 @@ export const moviesApi = createApi({
       providesTags: ['PersonDetails'],
     }),
     getPersonImages: builder.query({
-      query: personId => `person/${personId}/images?api_key=${KEY}&language=en-US`,
+      query: personId =>
+        `person/${personId}/images?api_key=${KEY}&language=en-US`,
       providesTags: ['PersonImages'],
     }),
     getFilmReviews: builder.query({
@@ -47,6 +52,7 @@ export const {
   useGetTrendFilmsQuery,
   useGetRequestedMoviesQuery,
   useGetFilmInfoQuery,
+  useGetFilmVideosQuery,
   useGetFilmCastQuery,
   useGetFilmReviewsQuery,
   useGetPersonDetailsQuery,

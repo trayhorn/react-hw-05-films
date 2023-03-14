@@ -1,30 +1,26 @@
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import ReactPlayer from 'react-player/youtube';
 
 
-export default function MainInfo({ posterImage, title, runtime, overview, genres, movieId }) {
+export default function MainInfo({ posterImage, title, overview, genres, movieId, videoKey }) {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
 
   return (
     <>
       <section className="filmBox">
-        <img
-          className="filmPoster"
-          src={`https://image.tmdb.org/t/p/original${posterImage}`}
-          alt={`${title} poster`}
-        />
+        <div className="poster-wrapper">
+          <img
+            className="filmPoster"
+            src={`https://image.tmdb.org/t/p/original${posterImage}`}
+            alt={`${title} poster`}
+          />
+        </div>
         <div className="mainInfo">
-          <div>
-            <h1>{title}</h1>
-            <p>Runtime: {runtime} min</p>
-            <p>
-              <b>Overview</b>
-            </p>
+          <div className="film-card">
+            <h1 className="film-card__title">{title}</h1>
             <p>{overview}</p>
-            <p>
-              <b>Genres</b>
-            </p>
             <p>
               {genres.map(({ id, name }) => (
                 <span key={id} className="genre">
@@ -32,10 +28,14 @@ export default function MainInfo({ posterImage, title, runtime, overview, genres
                 </span>
               ))}
             </p>
+            <ReactPlayer
+              controls={true}
+              url={`https://www.youtube.com/watch?v=${videoKey}`}
+            />
           </div>
           <div className="link-container">
             <NavLink
-              className="addInfo_link"
+              className="link-container__item"
               to={
                 location.pathname.includes('cast')
                   ? `/movies/${movieId}`
@@ -45,7 +45,7 @@ export default function MainInfo({ posterImage, title, runtime, overview, genres
               <Button variant="contained">Cast</Button>
             </NavLink>
             <NavLink
-              className="addInfo_link"
+              className="link-container__item"
               to={
                 location.pathname.includes('reviews')
                   ? `/movies/${movieId}`

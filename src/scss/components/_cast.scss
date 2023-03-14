@@ -1,4 +1,5 @@
 .actorsList {
+  margin-top: 30px;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -15,6 +16,9 @@
     text-decoration: none;
     color: black;
   }
+  &_card:hover {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
   &_card:nth-child(6n+1) {
     margin-left: 0;
   }
@@ -22,11 +26,7 @@
     margin-right: 0;
   }
 
-  &_charName {
-    text-align: center;
-    margin: 10px 0 0 0;
-  }
-
+  &_charName,
   &_actorName {
     text-align: center;
     margin: 10px 0 0 0;
