@@ -16,7 +16,7 @@ export default function FilmInfo() {
   console.log(filmVideos.results);
 
   const getTrailerKey = (videos) => {
-    const filteredVideos = videos.filter(video => video.name === 'Official Trailer');
+    const filteredVideos = videos.filter(video => video.name.includes('Trailer'));
     return filteredVideos[0].key;
   }
 
