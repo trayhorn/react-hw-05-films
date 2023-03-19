@@ -11,14 +11,14 @@ export default function Home() {
 
   return (
     <>
-      <h1 className="home_title">Trending today</h1>
+      <h1 className="home__title">Trending today</h1>
       {error && <ErrorMessage />}
       {trendFilms && (
-        <ul className="list">
+        <ul className="films-list">
           {trendFilms.results.map(({ id, title, name, poster_path }) => {
             return (
-              <li key={id} className="list_item">
-                <NavLink className="list_link" to={`/movies/${id}`}>
+              <li key={id} className="films-list__film">
+                <NavLink className="films-list__film-link" to={`/movies/${id}`}>
                   <div className="posterBox">
                     <img
                       className="poster"
@@ -26,7 +26,7 @@ export default function Home() {
                       alt={`${title}`}
                     />
                   </div>
-                  <p className="list_name">{title || name}</p>
+                  <p className="films-list__film-name">{title || name}</p>
                 </NavLink>
               </li>
             );

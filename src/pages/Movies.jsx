@@ -37,13 +37,13 @@ export default function Movies() {
       />
       {error && <ErrorMessage />}
       {data && (
-        <ul className="list">
+        <ul className="films-list">
           {data.results.map(
             ({ id, title, name, poster_path }) =>
               poster_path && (
-                <li key={id} className="list_item">
+                <li key={id} className="films-list__film">
                   <NavLink
-                    className="list_link"
+                    className="films-list__film-link"
                     to={`${id}`}
                     state={{ from: location }}
                   >
@@ -54,7 +54,7 @@ export default function Movies() {
                         alt=""
                       />
                     </div>
-                    <p className="list_name">{title || name}</p>
+                    <p className="films-list__film-name">{title || name}</p>
                   </NavLink>
                 </li>
               ),

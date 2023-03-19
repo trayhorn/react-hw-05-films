@@ -1,4 +1,4 @@
-.home_title {
+.home__title {
   margin-top: 0;
   margin-bottom: 20px;
   text-align: center;
@@ -7,9 +7,6 @@
 .posterBox {
   width: 242px;
   height: 363px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .poster {
@@ -19,34 +16,39 @@
   display: block;
 }
 
-.list {
+.films-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 25px;
+  grid-row-gap: 25px;
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
 
-  &_item {
-    padding: 25px;
-    width: calc((100% - 250px) / 5);
+  &__film {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 10px;
 
     &:hover {
       background-color: #274C77;
     }
   }
-
-  &_name {
-    text-align: center;
-    margin: 10px 0 0 0;
+  &__film:hover &__film-link {
+    color: #FFFF;
   }
 
-  &_link {
+  &__film-name {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  &__film-link {
+    padding-top: 12px;
     text-decoration: none;
     color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
-}
-
-.list_item:hover .list_link {
-  color: #FFFF;
 }
 

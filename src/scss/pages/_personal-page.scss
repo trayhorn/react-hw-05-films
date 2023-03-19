@@ -1,26 +1,21 @@
-/* Main info */
-
 .actor-page {
   display: flex;
   padding-bottom: 22px;
   border-bottom: 1px solid black;
+  
+  &__poster {
+    width: 375px;
+    margin-right: 50px;
+  }
 
   &__personal-information {
     display: flex;
     flex-direction: column;
     padding-right: 30px;
 
-    & > p {
+    & :is(p, h1) {
       margin-bottom: 0;
     }
-    & > h1 {
-      margin-bottom: 0;
-    }
-  }
-
-  &__poster {
-    width: 375px;
-    margin-right: 50px;
   }
 
   &__bio {
@@ -29,22 +24,11 @@
 }
 
 .actor-gallery {
-  display: flex;
-  flex-wrap: wrap;
-
-  &__item {
-    margin: 15px;
-    width: calc((100% - 120px) / 5);
-  }
-
-  &__item:nth-child(5n+1) {
-    margin-left: 0;
-    background-color: yellow;
-  }
-  &__item:nth-child(5n) {
-    margin-right: 0;
-  }
-
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  padding-top: 30px;
 
   &__image {
     display: block;
