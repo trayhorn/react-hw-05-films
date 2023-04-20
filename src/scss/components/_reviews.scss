@@ -1,10 +1,14 @@
 .reviews-list {
+  margin-top: 30px;
   text-align: justify;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  column-gap: 40px;
+  row-gap: 40px;
 
   &__item {
-    padding: 0 20px 0 20px;
-    width: calc((100% - 80px) / 2);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    padding: 20px;
   }
 }
